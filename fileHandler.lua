@@ -10,6 +10,7 @@ local fileName2 = "currentLevel.txt"
 local level 
 
 M.generateFiles = function()
+    print("Generating files")
     local path = system.pathForFile( fileName, system.DocumentsDirectory )
     local file = io.open( path )
     if not file then
@@ -65,12 +66,13 @@ M.writeRecord = function(record)
         table.insert(records,line)
     end
 
+
     if (records[level]~=nil) then
         table.remove(records,level)
     end
+
     table.insert(records,level,record)
 
-        --file:write( record )
     io.close( file )
     end
 
